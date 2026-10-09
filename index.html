@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>happy birthday my lovely - Blue Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at center,#f0f8ff 0%,#d6eaff 40%,#a8c8ff 100%);overflow-x:hidden;min-height:100vh;color:#1e3a8a}
+.bg-hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-hearts span{position:absolute;animation:floatUp linear infinite;opacity:0.6}
+@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg) scale(0.5);opacity:0}10%{opacity:0.8}90%{opacity:0.6}100%{transform:translateY(-10vh) rotate(360deg) scale(1.2);opacity:0}}
+.container{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:20px 20px 80px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.section{display:none;width:100%;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:fadeIn 0.6s ease}
+.section.active{display:flex}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.small-text{font-size:11px;opacity:0.7;margin-top:12px;letter-spacing:0.5px}
+.title{font-size:24px;font-weight:600;color:#2563eb;margin-bottom:6px}
+.subtitle{font-size:11px;opacity:0.6;margin-bottom:18px;max-width:300px}
+.envelope-wrap{position:relative;width:280px;height:180px;cursor:pointer;filter:drop-shadow(0 10px 20px rgba(59,130,246,0.3));transition:transform 0.3s}
+.envelope-wrap:hover{transform:scale(1.05)}
+.envelope{position:relative;width:100%;height:100%;background:#bfdbfe;border-radius:8px;overflow:hidden}
+.envelope::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:#93c5fd;clip-path:polygon(0 0,100% 0,50% 100%);z-index:3;transform-origin:top;transition:transform 0.6s ease}
+.envelope.open::before{transform:rotateX(180deg)}
+.envelope-body{position:absolute;bottom:0;width:100%;height:100%;background:linear-gradient(135deg,#dbeafe,#93c5fd);clip-path:polygon(0 100%,0 20%,50% 60%,100% 20%,100% 100%)}
+.seal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:#facc15;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.card{background:white;border-radius:18px;padding:18px 16px 16px;width:310px;box-shadow:0 15px 35px rgba(59,130,246,0.2);position:relative;overflow:hidden;border:2px solid #dbeafe}
+.card-top{position:absolute;top:0;left:0;width:100%;height:70px;background:linear-gradient(to bottom,#dbeafe,#eff6ff)}
+.btn{border:none;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;box-shadow:0 6px 15px rgba(37,99,235,0.3)}
+.book-wrap{width:300px;height:190px;background:linear-gradient(135deg,#1e40af,#3b82f6);border-radius:12px;box-shadow:0 15px 35px rgba(30,64,175,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;cursor:pointer}
+.lock{width:44px;height:44px;background:#fbbf24;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:10px 0;font-size:22px}
+.paper{background:white;border-radius:12px;width:340px;padding:16px 18px;box-shadow:0 15px 35px rgba(0,0,0,0.1);text-align:left;transform:rotate(-1deg);border:1px dashed #93c5fd}
+.paper h3{font-family:'Dancing Script',cursive;color:#2563eb;font-size:20px;margin-bottom:8px}
+.paper p{font-family:'Patrick Hand',cursive;font-size:14px;line-height:1.5;color:#334155}
+.stack{position:relative;width:300px;height:340px}
+.polaroid{position:absolute;top:0;left:0;width:100%;background:white;padding:10px 10px 38px;border-radius:6px;box-shadow:0 10px 25px rgba(0,0,0,0.15);cursor:grab;user-select:none;touch-action:none}
+.polaroid img{width:100%;height:230px;object-fit:cover;border-radius:4px;background:#e0f2fe}
+.polaroid .caption{font-family:'Patrick Hand',cursive;position:absolute;bottom:10px;left:0;width:100%;text-align:center;font-size:14px;color:#1e3a8a}
+.cake-scene{position:relative;width:300px;height:260px;display:flex;align-items:flex-end;justify-content:center}
+.cake{width:180px;position:relative;z-index:1}
+.cake-layer{height:42px;border-radius:8px;position:relative;margin:0 auto;display:flex;align-items:center;justify-content:center}
+.layer3{width:180px;background:linear-gradient(#93c5fd,#60a5fa);border:2px solid #3b82f6}
+.layer2{width:140px;background:linear-gradient(#60a5fa,#3b82f6);border:2px solid #2563eb;margin-top:-6px}
+.layer1{width:100px;background:linear-gradient(#3b82f6,#2563eb);border:2px solid #1d4ed8;margin-top:-6px}
+.candle{position:absolute;top:-28px;left:50%;transform:translateX(-50%);width:6px;height:24px;background:#facc15;border-radius:3px}
+.flame{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:12px;height:16px;background:radial-gradient(#fef08a,#facc15,#f97316);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;animation:flicker 0.3s infinite alternate}
+@keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.15)}}
+.knife{position:absolute;left:10px;top:50%;width:6px;height:140px;background:linear-gradient(#e2e8f0,#94a3b8);border-radius:3px;z-index:5;cursor:grab}
+.knife::after{content:'';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:20px;height:28px;background:#1e293b;border-radius:4px}
+.cut-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#1e293b;transform:translateX(-50%);z-index:3;opacity:0;transition:opacity 0.3s}
+.cut-line.show{opacity:1}
+.drag-box{margin-top:16px;border:1.5px dashed #93c5fd;border-radius:10px;padding:8px 20px;font-size:11px;background:white;min-width:180px}
+.wish-area{width:320px;height:280px;background:rgba(255,255,255,0.6);backdrop-filter:blur(10px);border-radius:18px;border:1.5px dashed #93c5fd;position:relative;overflow:hidden}
+.wish-bubble{position:absolute;background:white;padding:6px 12px;border-radius:20px;font-size:10px;box-shadow:0 4px 12px rgba(59,130,246,0.2);cursor:pointer;animation:floatBubble 4s ease-in-out infinite;white-space:nowrap;border:1px solid #dbeafe}
+@keyframes floatBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.wish-result{background:white;border-radius:12px;padding:12px;margin-top:12px;width:320px;box-shadow:0 8px 20px rgba(0,0,0,0.08);font-family:'Patrick Hand',cursive;font-size:14px;min-height:50px;border:1px solid #dbeafe}
+.gift-wrap{position:relative;width:140px;height:110px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border-radius:10px;cursor:pointer;box-shadow:0 12px 25px rgba(37,99,235,0.3);animation:giftBounce 1.2s ease infinite}
+@keyframes giftBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ribbon-h{position:absolute;top:50%;left:0;width:100%;height:16px;background:#facc15;transform:translateY(-50%)}
+.ribbon-v{position:absolute;left:50%;top:0;height:100%;width:16px;background:#facc15;transform:translateX(-50%)}
+.bow{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:28px}
+.tap-badge{position:absolute;top:-12px;right:-18px;background:#fef08a;color:#854d0e;font-size:9px;padding:3px 6px;border-radius:8px;transform:rotate(12deg);font-weight:700}
+.dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:10}
+.dot{width:6px;height:6px;border-radius:50%;background:#bfdbfe;transition:all 0.3s;cursor:pointer}
+.dot.active{width:8px;height:8px;background:#3b82f6;box-shadow:0 0 0 4px rgba(59,130,246,0.2)}
+.confetti{position:fixed;pointer-events:none;z-index:20}
+</style>
+</head>
+<body>
+<div class="bg-hearts" id="bgHearts"></div>
+<div class="dots" id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="container">
+<div class="section active" id="s1"><div class="envelope-wrap" id="envelopeWrap"><div class="envelope" id="envelope"><div class="envelope-body"></div><div class="seal" id="seal">💙</div></div></div><div class="small-text">Ketuk pita biru untuk membuka undangan... ✨</div></div>
+<div class="section" id="s2"><div class="card"><div class="card-top"></div><div style="position:relative;z-index:1"><div style="font-size:32px">🎂💙</div><h2 style="font-size:15px;color:#1d4ed8">Happy Birthday,<br><i style="font-family:'Dancing Script',cursive;font-size:18px">My Lovely</i></h2><p style="font-size:9px;margin:8px 0;color:#475569">Aku sudah menyiapkan sesuatu yang spesial untuk kamu... sebuah perjalanan kecil untuk memulai harimu!</p><button class="btn" onclick="goTo(3)">Mulai Kejutan →</button></div></div><div class="small-text">Terbukti! Tekan tombol di surat... 💌</div></div>
+<div class="section" id="s3"><div class="title">My Secret Diary</div><div class="subtitle">Ketuk buku untuk memutar kuncinya & membacanya</div><div class="book-wrap" id="book"><div style="font-size:13px">My Secret Diary</div><div class="lock" id="lock">🔒</div><div style="font-size:8px;opacity:0.7">TAP TO UNLOCK & OPEN</div></div></div>
+<div class="section" id="s4"><div class="title">My Secret Diary</div><div class="paper"><h3>Dearest My Lovely,</h3><p>Setiap momen bersamamu terasa seperti mimpi yang paling indah. Kamu adalah seseorang yang begitu... tulus, kebahagiaan, dan tawa suara di hariku.</p><p style="margin-top:10px">Di hari spesialmu ini, aku ingin kamu tahu betapa berharganya kehadiranmu. Kamu adalah orang favoritku di seluruh dunia.</p><p style="margin-top:12px;text-align:right;color:#3b82f6">Love always,</p><button class="btn" style="margin-top:12px;float:right" onclick="goTo(5)">See Our Memories →</button><div style="clear:both"></div></div></div>
+<div class="section" id="s5"><div class="title">Our Memories - My Lovely</div><div class="subtitle">Tarik & lempar tumpukan foto untuk melihat! 📸</div><div class="stack" id="stack"></div><button class="btn" style="margin-top:14px" onclick="goTo(6)">Time for Cake! →</button></div>
+<div class="section" id="s6"><div class="title">Time for Cake! 🎂</div><div class="subtitle">Tarik pisau pemotong dari kiri ke kanan! 🎉</div><div class="cake-scene" id="cakeScene"><div class="knife" id="knife"></div><div class="cut-line" id="cutLine"></div><div class="cake" id="cake"><div class="cake-layer layer1"><div class="candle"><div class="flame"></div></div>❤️</div><div class="cake-layer layer2">✨ ✨ ✨</div><div class="cake-layer layer3">🎂</div></div></div><div class="drag-box" id="dragBox">Geser pisau untuk memotong kue!</div></div>
+<div class="section" id="s7"><div class="title">Floating Wishes</div><div class="subtitle">Pecahkan gelembung untuk mengabulkan harapanmu! 💫</div><div class="wish-area" id="wishArea"></div><div class="wish-result" id="wishResult" style="display:none"></div><div style="margin-top:12px"><div style="font-family:'Dancing Script',cursive;font-size:20px;color:#1d4ed8">Happy Birthday, My Lovely ♥</div><button class="btn" style="margin-top:10px" onclick="goTo(8)">Open Your Gift →</button></div></div>
+<div class="section" id="s8"><div class="title">Satu Hal Lagi...</div><div class="subtitle">Ketuk kotak kado untuk membuka hadiah 🎁</div><div class="gift-wrap" id="gift"><div class="ribbon-h"></div><div class="ribbon-v"></div><div class="bow">🎀</div><div class="tap-badge">Tap Me!</div></div><div id="finalMsg" style="display:none;margin-top:20px;background:white;padding:16px;border-radius:14px;max-width:320px"><h3 style="font-family:'Dancing Script',cursive;color:#2563eb;font-size:22px">You are my everything My Lovely 💙</h3><p style="font-size:12px;margin-top:8px;color:#475569">Semoga di umur barumu ini semua mimpi kamu tercapai. Aku bakal selalu di samping kamu. Selamat ulang tahun sayang! 🎉✨</p></div></div>
+</div>
+<script>
+const heartsContainer=document.getElementById('bgHearts');
+function createHearts(){const icons=['💙','🩵','💧','✨','⭐'];for(let i=0;i<25;i++){const s=document.createElement('span');s.textContent=icons[Math.floor(Math.random()*icons.length)];s.style.left=Math.random()*100+'vw';s.style.animationDuration=(6+Math.random()*8)+'s';s.style.animationDelay=Math.random()*5+'s';s.style.fontSize=(10+Math.random()*14)+'px';heartsContainer.appendChild(s);}}
+createHearts();
+let cur=1;
+function goTo(n){document.getElementById('s'+cur).classList.remove('active');document.getElementById('s'+n).classList.add('active');cur=n;updateDots();if(n===5)initStack();if(n===7)initWishes();}
+function updateDots(){document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('active',i+1===cur);});}
+document.querySelectorAll('.dot').forEach((d,i)=>d.addEventListener('click',()=>goTo(i+1)));
+document.getElementById('envelopeWrap').addEventListener('click',()=>{document.getElementById('envelope').classList.add('open');document.getElementById('seal').style.transform='translate(-50%,-50%) scale(0)';confettiBurst(40);setTimeout(()=>goTo(2),700);});
+document.getElementById('book').addEventListener('click',function(){document.getElementById('lock').textContent='🔓';confettiBurst(20);setTimeout(()=>goTo(4),800);});
+const photos=['my-lovely.jpg','my-lovely.jpg','my-lovely.jpg','my-lovely.jpg','my-lovely.jpg'];
+function initStack(){const stack=document.getElementById('stack');if(stack.dataset.done)return;stack.dataset.done=1;for(let i=photos.length-1;i>=0;i--){const div=document.createElement('div');div.className='polaroid';div.style.transform=`rotate(${(Math.random()-0.5)*12}deg) translate(${(Math.random()-0.5)*10}px,${i*4}px)`;div.style.zIndex=i;div.innerHTML=`<img src="${photos[i]}"><div class="caption">My Lovely 🥰</div>`;makeDraggable(div,()=>{div.style.transform=`translate(${Math.random()*600-300}px, -600px) rotate(30deg)`;div.style.opacity=0;setTimeout(()=>div.remove(),400);});stack.appendChild(div);}}
+function makeDraggable(el,onThrow){let startX=0,curX=0,drag=false;el.addEventListener('pointerdown',e=>{drag=true;startX=e.clientX;el.setPointerCapture(e.pointerId)});el.addEventListener('pointermove',e=>{if(!drag)return;curX=e.clientX-startX;el.style.transform=`translateX(${curX}px) rotate(${curX*0.1}deg)`});el.addEventListener('pointerup',()=>{if(!drag)return;drag=false;if(Math.abs(curX)>80)onThrow()});}
+(function(){const knife=document.getElementById('knife');const cutLine=document.getElementById('cutLine');const scene=document.getElementById('cakeScene');const box=document.getElementById('dragBox');let dragging=false;knife.addEventListener('pointerdown',e=>{dragging=true;knife.setPointerCapture(e.pointerId)});window.addEventListener('pointermove',e=>{if(!dragging)return;let rect=scene.getBoundingClientRect();let x=e.clientX-rect.left;x=Math.max(0,Math.min(rect.width,x));knife.style.left=x+'px';cutLine.style.left=x+'px';cutLine.classList.add('show');if(x>rect.width*0.7)finishCut()});window.addEventListener('pointerup',()=>dragging=false);function finishCut(){if(box.dataset.done)return;box.dataset.done=1;confettiBurst(60);box.textContent='Yummy! Potongan sempurna! 🎉';setTimeout(()=>{box.innerHTML='<span style="color:#2563eb;font-weight:600">Lilinnya sudah padam ditiup cinta! 💙</span><br><br><button class="btn" onclick="goTo(7)">Make a Wish →</button>';},800);}})();
+const wishesList=[{t:'Stay Healthy',m:'Semoga My Lovely selalu sehat 💙'},{t:'Stay Happy',m:'Semoga My Lovely selalu bahagia!'},{t:'Dream Big',m:'Jangan takut bermimpi besar My Lovely!'},{t:'Be Successful',m:'Semoga cita-cita My Lovely tercapai!'},{t:'Always Loved',m:'My Lovely akan selalu dicintai!'},{t:'Forever Us',m:'Semoga kita selalu bersama My Lovely! 🥰'}];
+function initWishes(){const area=document.getElementById('wishArea');if(area.dataset.done)return;area.dataset.done=1;wishesList.forEach((w,i)=>{const b=document.createElement('div');b.className='wish-bubble';b.textContent=w.t;b.style.left=(10+Math.random()*60)+'%';b.style.top=(10+Math.random()*60)+'%';b.style.animationDelay=(i*0.2)+'s';b.addEventListener('click',()=>{b.style.transform='scale(1.8)';b.style.opacity=0;showWish(w.m);confettiBurst(20);setTimeout(()=>b.remove(),300);});area.appendChild(b);});}
+function showWish(t){const r=document.getElementById('wishResult');r.style.display='block';r.textContent=t;}
+document.getElementById('gift').addEventListener('click',function(){confettiBurst(80);setTimeout(()=>{document.getElementById('finalMsg').style.display='block';this.style.display='none';},500);});
+function confettiBurst(n){for(let i=0;i<n;i++){const c=document.createElement('div');c.className='confetti';c.textContent=['💙','🩵','⭐','✨'][Math.floor(Math.random()*4)];c.style.left=(50+(Math.random()-0.5)*40)+'vw';c.style.top='50vh';c.style.fontSize=(12+Math.random()*16)+'px';document.body.appendChild(c);const anim=c.animate([{transform:`translate(0,0)`,opacity:1},{transform:`translate(${(Math.random()-0.5)*400}px,${-200-Math.random()*300}px) rotate(720deg)`,opacity:0}],{duration:1200+Math.random()*800});anim.onfinish=()=>c.remove();}}
+</script>
+</body>
+</html>
